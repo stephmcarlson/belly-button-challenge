@@ -1,6 +1,8 @@
 // Get the JSON
 const study = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json";
 
+//Create drop down to allow selection of participant
+
 function init() {
 
     const dropDown = d3.selectAll("#selDataset")
@@ -13,6 +15,9 @@ function init() {
         buildMetadata(names[0])
     });
 }
+
+
+// Creating charts based on selected data
 
 function buildCharts(sample_id) {
     d3.json(study).then(function (data) {
@@ -62,6 +67,8 @@ function buildCharts(sample_id) {
 
 }
 
+// Create demographic card with participant information
+
 function buildMetadata (sample_id){
     d3.json(study).then(function (data) {
 
@@ -77,6 +84,7 @@ function buildMetadata (sample_id){
 
 }
 
+//Initialize page and call functions to build charts and information
 
 init();
 function optionChanged(newsample) {
